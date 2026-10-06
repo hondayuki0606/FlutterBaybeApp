@@ -31,23 +31,6 @@ class HomePage extends ConsumerWidget {
                 ],
               ),
             ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              icon: const Icon(Icons.home),
-              tooltip: 'ホーム',
-              onPressed: () => context.go('/home'),
-            ),
-            IconButton(
-              icon: const Icon(Icons.settings),
-              tooltip: '設定',
-              onPressed: () => context.go('/settings'),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

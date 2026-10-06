@@ -10,7 +10,7 @@ class HomeNotifier extends Notifier<HomeState> {
 
   Future<void> load() async {
     state = state.copyWith(isLoading: true);
-    await Future.delayed(const Duration(seconds: 10));
+    await Future.delayed(const Duration(seconds: 2));
     state = state.copyWith(
       thumbnails: [
         'https://picsum.photos/200/300',
