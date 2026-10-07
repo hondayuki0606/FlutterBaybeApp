@@ -1,3 +1,5 @@
+import '../../../../core/domain/entities/slider_info.dart';
+
 class HomeState {
   const HomeState({
     this.sliderInfo = const [],
@@ -20,22 +22,4 @@ class HomeState {
       isLoading: isLoading ?? this.isLoading,
     );
   }
-}
-
-class SliderInfo {
-  const SliderInfo({
-    this.title = '',
-    this.videoThumbnails = const [],
-  });
-
-  final String title;
-  final List<VideoThumbnail> videoThumbnails;
-}
-
-class VideoThumbnail {
-  const VideoThumbnail({
-    this.imageUrl = '',
-  });
-
-  final String imageUrl;
 }

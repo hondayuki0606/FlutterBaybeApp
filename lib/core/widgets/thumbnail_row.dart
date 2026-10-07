@@ -1,6 +1,6 @@
-import 'package:baybe_app/features/home/application/home_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../domain/entities/video_thumbnail.dart';
 
 class ThumbnailRow extends StatelessWidget {
   const ThumbnailRow({super.key, required this.videoThumbnails, this.onTap});

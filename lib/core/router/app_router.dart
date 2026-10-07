@@ -1,9 +1,10 @@
 import 'package:baybe_app/core/widgets/navigation_shell.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:baybe_app/features/home/presentetaion/home_page.dart';
-import 'package:baybe_app/features/settings/presentetaion/settings_page.dart';
-import 'package:baybe_app/features/detail/presentetaion/detail_page.dart';
+import 'package:baybe_app/features/home/presentation/pages/home_page.dart';
+import 'package:baybe_app/features/settings/presentation/pages/settings_page.dart';
+import 'package:baybe_app/features/battery/presentation/pages/battery_page.dart';
+import 'package:baybe_app/features/detail/presentation/pages/detail_page.dart';
 
 final routerProvider = Provider<GoRouter>(
   (ref) {
@@ -19,6 +20,14 @@ final routerProvider = Provider<GoRouter>(
                 GoRoute(
                   path: '/home',
                   builder: (context, state) => const HomePage(title: 'Home'),
+                ),
+              ],
+            ),
+            StatefulShellBranch(
+              routes: [
+                GoRoute(
+                  path: '/battery',
+                  builder: (context, state) => const BatteryPage(),
                 ),
               ],
             ),
