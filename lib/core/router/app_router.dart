@@ -36,7 +36,7 @@ final routerProvider = Provider<GoRouter>(
           path: '/detail/:id',
           builder: (context, state) {
             final id = state.pathParameters['id']!;
-            return DetailPage(url: id);
+            return DetailPage(contentId: id);
           },
         ),
       ],

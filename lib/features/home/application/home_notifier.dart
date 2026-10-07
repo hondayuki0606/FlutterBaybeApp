@@ -12,12 +12,29 @@ class HomeNotifier extends Notifier<HomeState> {
     state = state.copyWith(isLoading: true);
     await Future.delayed(const Duration(seconds: 2));
     state = state.copyWith(
-      thumbnails: [
-        'https://picsum.photos/200/300',
-        'https://picsum.photos/200/300',
-        'https://picsum.photos/200/300',
-        'https://picsum.photos/200/300',
-        'https://picsum.photos/200/300',
+      sliderInfo: const [
+        SliderInfo(
+          title: 'スライダー①',
+          videoThumbnails: [
+            VideoThumbnail(
+              imageUrl: 'https://picsum.photos/200/300',
+            ),
+            VideoThumbnail(
+              imageUrl: 'https://picsum.photos/200/300',
+            ),
+          ],
+        ),
+        SliderInfo(
+          title: 'スライダー②',
+          videoThumbnails: [
+            VideoThumbnail(
+              imageUrl: 'https://picsum.photos/200/300',
+            ),
+            VideoThumbnail(
+              imageUrl: 'https://picsum.photos/200/300',
+            ),
+          ],
+        ),
       ],
       isLoading: false,
     );
@@ -29,4 +46,4 @@ class HomeNotifier extends Notifier<HomeState> {
 }
 
 final homeProvider =
-    NotifierProvider<HomeNotifier, HomeState>(HomeNotifier.new);
+NotifierProvider<HomeNotifier, HomeState>(HomeNotifier.new);

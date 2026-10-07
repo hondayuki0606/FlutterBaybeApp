@@ -1,10 +1,11 @@
+import 'package:baybe_app/features/home/application/home_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ThumbnailRow extends StatelessWidget {
-  const ThumbnailRow({super.key, required this.urls, this.onTap});
+  const ThumbnailRow({super.key, required this.videoThumbnails, this.onTap});
 
-  final List<String> urls;
+  final List<VideoThumbnail> videoThumbnails;
   final void Function(int index)? onTap;
 
   @override
@@ -13,8 +14,7 @@ class ThumbnailRow extends StatelessWidget {
       height: 120,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        itemCount: urls.length,
+        itemCount: videoThumbnails.length,
         separatorBuilder: (_, __) => const SizedBox(
           width: 12,
         ),
@@ -26,7 +26,7 @@ class ThumbnailRow extends StatelessWidget {
               child: InkWell(
                 onTap: onTap == null ? null : () => onTap!(index),
                 child: Image.network(
-                  urls[index],
+                  videoThumbnails[index].imageUrl,
                   fit: BoxFit.cover,
                   loadingBuilder: (context, child, progress) => progress == null
                       ? child

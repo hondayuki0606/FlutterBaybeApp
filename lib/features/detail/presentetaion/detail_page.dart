@@ -1,25 +1,28 @@
+import 'package:baybe_app/core/widgets/app_scaffold.dart';
+import 'package:baybe_app/features/detail/application/detail_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:baybe_app/core/widgets/thumbnail_row.dart';
 
 class DetailPage extends ConsumerWidget {
-  const DetailPage({super.key, required this.url});
+  const DetailPage({super.key, required this.contentId});
 
-  final String url;
+  final String contentId;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('detail'),
-      ),
-      body: Center(
+    final state = ref.watch(detailProvider);
+    final items = <Widget>[];
+    items.add(Text('タイトル ${state.title}'));
+    items.add(Image.network(state.imageUrl));
+    return AppScaffold(
+      title: 'detail',
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text('detail'),
-            ThumbnailRow(urls: [url]),
+            ...items,
           ],
         ),
       ),
